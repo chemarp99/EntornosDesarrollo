@@ -2,10 +2,12 @@ package es.studium.Contador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.TextEvent;
+import java.awt.event.TextListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class ControladorContador implements ActionListener, WindowListener{
+public class ControladorContador implements ActionListener, WindowListener, TextListener{
 	VistaContador objVista = null; 
 	ModeloContador objModelo = null;
  
@@ -16,14 +18,11 @@ public class ControladorContador implements ActionListener, WindowListener{
 		objVista.setVisible(true);
 		/* Añadimos los escuchadores */
 		objVista.addWindowListener(this);
-		objVista.btnCalcular.addActionListener(this);
+		objVista.txtResultado.addTextListener(this);
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if(objVista.btnCalcular.equals(e.getSource())) {
-			objVista.lblResultado.setText((objModelo.contarPalabras(objVista.txtResultado.getText()).toString()));
-		}
+	public void actionPerformed(ActionEvent e) {	
 		
 	}
 
@@ -66,6 +65,15 @@ public class ControladorContador implements ActionListener, WindowListener{
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void textValueChanged(TextEvent arg0) {
+		if(objVista.txtResultado.equals(arg0.getSource())) {
+			objVista.lblResultado.setText((objModelo.contarPalabras(objVista.txtResultado.getText()).toString()));
+
+		}
 		
 	}
 
