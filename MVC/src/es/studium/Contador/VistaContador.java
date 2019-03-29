@@ -1,6 +1,5 @@
 package es.studium.Contador;
 
-import java.awt.Button;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -13,8 +12,7 @@ public class VistaContador extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	Label lblResultado = new Label("Resultado:");
-	Button btnCalcular = new Button("Calcular");
+	Label lblResultado = new Label("");
 	TextArea txtResultado = new TextArea(10,50);
 	Panel pnlPanel = new Panel();
 	Panel pnlPanel1 = new Panel();
@@ -27,7 +25,6 @@ public class VistaContador extends JFrame {
 		pnlPanel.setLayout(new FlowLayout());
 		pnlPanel1.setLayout(new FlowLayout());
 		pnlPanel1.add(lblResultado);
-		pnlPanel1.add(btnCalcular);
 		pnlPanel.add(txtResultado);
 		add(pnlPanel, "Center");
 		add(pnlPanel1, "Center");
